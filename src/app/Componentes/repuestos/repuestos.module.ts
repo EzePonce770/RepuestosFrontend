@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RepuestosListComponent } from './repuestos-list/repuestos-list.component';
-import { RepuestosEditComponent } from './repuestos-edit/repuestos-edit.component';
 import { RepuestosCreateComponent } from './repuestos-create/repuestos-create.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -16,7 +15,6 @@ import { DropdownModule } from 'primeng/dropdown';
   declarations: [
   
     RepuestosListComponent,
-    RepuestosEditComponent,
     RepuestosCreateComponent
     
   ],
@@ -32,7 +30,6 @@ import { DropdownModule } from 'primeng/dropdown';
   ],  
   exports: [
     RepuestosListComponent,
-    RepuestosEditComponent,
     RepuestosCreateComponent
   ]
 })

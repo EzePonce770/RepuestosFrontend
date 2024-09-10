@@ -72,9 +72,7 @@ export class RepuestosListComponent {
     this.displayModal = false;
   }
 
-  // Guardar cambios del repuesto
   guardarRepuesto() {
-    // Aquí envías los datos al backend para guardar
     console.log(this.repuestoForm.value);
     this.cerrarModal();
   }

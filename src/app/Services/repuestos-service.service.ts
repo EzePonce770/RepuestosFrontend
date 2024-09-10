@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { Repuesto } from '../Interfaces/repuestos.interface';
+import { IDMarcaNavigation, Repuesto } from '../Interfaces/repuestos.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,20 +10,26 @@ export class RepuestosServiceService {
 
   constructor(private api: ApiService) { }
 
-  createClientes(cliente: Repuesto): Observable<Repuesto>{
-    return this.api.post('Clientes/Create',cliente)
+  createRepuesto(repuesto: Repuesto): Observable<Repuesto>{
+    console.log("hasta aca funciona",repuesto)
+    return this.api.post('Repuestos/Create',repuesto)
+    
   }
 
-  DeleteCliente(idCliente: number):Observable<boolean>{
-    return this.api.delete(`Clientes/Delete?id=${idCliente}`)
+  DeleteRepuesto(idRepuesto: number):Observable<boolean>{
+    return this.api.delete(`Repuestos/Delete?id=${idRepuesto}`)
   }
 
-  GetCliente(idCliente: number):Observable<Repuesto>{
-    return this.api.get(`Clientes/GetById?id=${idCliente}`)
+  GetRepuestos(idRepuesto: number):Observable<Repuesto>{
+    return this.api.get(`Repuestos/GetbyId?id=${idRepuesto}`)
   }
 
-  getAllClientes():Observable<Repuesto[]>{
-    return this.api.get('Clientes/GetAll')
+  getAllRepuestos():Observable<Repuesto[]>{
+    return this.api.get('Repuestos/GetAll')
+  }
+
+  getMarcas():Observable<IDMarcaNavigation[]>{
+    return this.api.get('Marcas/GetAll')
   }
 
 }

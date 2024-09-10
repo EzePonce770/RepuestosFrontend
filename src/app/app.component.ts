@@ -34,7 +34,7 @@ export class AppComponent {
       icon: 'pi pi-fw pi-users',
       items: [
         { label: 'Ver', icon: 'pi pi-fw pi-eye', routerLink: ['clientesList'] },
-        { label: 'Agregar', icon: 'pi pi-fw pi-plus', routerLink: ['/clientes/create'] }
+        { label: 'Agregar', icon: 'pi pi-fw pi-plus', routerLink: ['clientesCreate'] }
       ]
     }
   ];

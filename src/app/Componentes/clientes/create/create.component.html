@@ -1,1 +1,39 @@
-<p>create works!</p>
+<div class="form-container">
+    <h2 class="form-title">Agregar Cliente</h2>
+
+    <form [formGroup]="clienteForm" (ngSubmit)="agregarCliente()">
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input formControlName="nombre" type="text" id="nombre" class="form-input" />
+            <div class="error-message"
+                *ngIf="clienteForm.controls['nombre'].invalid && clienteForm.controls['nombre'].touched">
+                El nombre del cliente es requerido.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input formControlName="apellido" type="text" id="apellido" class="form-input" />
+            <div class="error-message"
+                *ngIf="clienteForm.controls['apellido'].invalid && clienteForm.controls['apellido'].touched">
+                El Apellido del cliente es requerido.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input formControlName="telefono" type="text" id="telefono" class="form-input" />
+            <div class="error-message"
+                *ngIf="clienteForm.controls['telefono'].invalid && clienteForm.controls['telefono'].touched">
+                El telefono es requerido.
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button pButton type="submit" label="Agregar" class="p-button-primary"
+                [disabled]="clienteForm.invalid"></button>
+        </div>
+
+    </form>
+</div>

@@ -25,8 +25,8 @@ export class AppComponent {
       label: 'Repuestos',
       icon: 'pi pi-fw pi-cog',
       items: [
-        { label: 'Ver', icon: 'pi pi-fw pi-eye', routerLink: ['/repuestos/list'] },
-        { label: 'Agregar', icon: 'pi pi-fw pi-plus', routerLink: ['/repuestos/create'] }
+        { label: 'Ver', icon: 'pi pi-fw pi-eye', routerLink: ['repuestosList'] },
+        { label: 'Agregar', icon: 'pi pi-fw pi-plus', routerLink: ['repuestosCreate'] }
       ]
     },
     {

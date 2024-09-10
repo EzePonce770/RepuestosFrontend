@@ -5,6 +5,10 @@ import { RepuestosEditComponent } from './repuestos-edit/repuestos-edit.componen
 import { RepuestosCreateComponent } from './repuestos-create/repuestos-create.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -14,11 +18,16 @@ import { ButtonModule } from 'primeng/button';
     RepuestosListComponent,
     RepuestosEditComponent,
     RepuestosCreateComponent
+    
   ],
   imports: [
     CommonModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    DropdownModule
 
   ],  
   exports: [

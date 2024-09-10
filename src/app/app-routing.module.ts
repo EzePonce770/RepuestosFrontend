@@ -6,6 +6,7 @@ import { CreateComponent } from './Componentes/clientes/create/create.component'
 import { ListComponent } from './Componentes/clientes/list/list.component';
 import { EditComponent } from './Componentes/clientes/edit/edit.component';
 import { RepuestosListComponent } from './Componentes/repuestos/repuestos-list/repuestos-list.component';
+import { RepuestosCreateComponent } from './Componentes/repuestos/repuestos-create/repuestos-create.component';
 
 const routes: Routes = [
   { path: 'facturasList', component: FacturaListComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'clientesList', component: ListComponent },
   { path: 'clientesEdit', component: EditComponent },
   { path: 'repuestosList', component: RepuestosListComponent },
+  { path: 'repuestosCreate', component: RepuestosCreateComponent },
 
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];

@@ -1,4 +1,4 @@
-<p-table [value]="clienteList" [paginator]="true" [rows]="10" [globalFilterFields]="['nombre','apellido']" [filters]="{cliente: {value: '', matchMode: 'contains'}}">
+<!-- <p-table [value]="repuestoList" [paginator]="true" [rows]="10" [globalFilterFields]="['nombre','apellido']" [filters]="{cliente: {value: '', matchMode: 'contains'}}">
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="cliente">Nombre</th>
@@ -16,4 +16,62 @@
         </td>
       </tr>
     </ng-template>
+  </p-table> -->
+
+  <p-table [value]="repuestoList" selectionMode="single" [(selection)]="selectedRepuesto" class="p-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre Repuesto</th>
+        <th>Precio</th>
+        <th>Marca</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-repuesto>
+      <tr>
+        <td>{{ repuesto.nombreRepuesto }}</td>
+        <td>{{ repuesto.precio | currency }}</td>
+        <td>{{ repuesto.idMarcaNavigation.nombre }}</td>
+        <td>
+          <button pButton type="button" label="Editar" icon="pi pi-pencil" class="p-button-warning" (click)="abrirModalEditar(repuesto)"></button>
+          <button pButton type="button" label="Eliminar" icon="pi pi-trash" class="p-button-danger" (click)="abrirModalEliminar(repuesto.idRepuestos)"></button>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
+  
+  <p-dialog header="Editar Repuesto" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [resizable]="false" [closable]="true">
+    <div class="modal-content">
+      <h2><i class="pi pi-pencil"></i> Editar Repuesto</h2>
+      <form [formGroup]="repuestoForm">
+        <div class="p-field">
+          <label for="nombreRepuesto">Nombre del Repuesto</label>
+          <input id="nombreRepuesto" pInputText formControlName="nombreRepuesto" />
+        </div>
+        <div class="p-field">
+          <label for="precio">Precio</label>
+          <input id="precio" pInputText formControlName="precio" />
+        </div>
+        <div class="p-field">
+          <label for="idMarca">Marca</label>
+          <input id="idMarca" pInputText formControlName="idMarca" />
+        </div>
+        <div class="p-dialog-footer">
+          <button pButton label="Guardar" icon="pi pi-check" (click)="guardarRepuesto()" class="p-button-success"></button>
+          <button pButton label="Cancelar" icon="pi pi-times" (click)="cerrarModal()" class="p-button-secondary"></button>
+        </div>
+      </form>
+    </div>
+  </p-dialog>
+
+  <p-dialog header="Confirmar Eliminación" [(visible)]="displayDeleteModal" [modal]="true" [style]="{width: '30vw'}" [resizable]="false">
+    <div class="modal-content">
+      <h2><i class="pi pi-exclamation-triangle"></i> Confirmar</h2>
+      <p>¿Estás seguro que deseas eliminar este repuesto?</p>
+      <div class="p-dialog-footer">
+        <button pButton label="Eliminar" icon="pi pi-trash" (click)="eliminarRepuesto()" class="p-button-danger"></button>
+        <button pButton label="Cancelar" icon="pi pi-times" (click)="cerrarModalEliminar()" class="p-button-secondary"></button>
+      </div>
+    </div>
+  </p-dialog>

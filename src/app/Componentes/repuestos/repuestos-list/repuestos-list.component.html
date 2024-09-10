@@ -1,22 +1,3 @@
-<!-- <p-table [value]="repuestoList" [paginator]="true" [rows]="10" [globalFilterFields]="['nombre','apellido']" [filters]="{cliente: {value: '', matchMode: 'contains'}}">
-    <ng-template pTemplate="header">
-      <tr>
-        <th pSortableColumn="cliente">Nombre</th>
-        <th pSortableColumn="fecha">Apellido</th>
-        <th>Acciones</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-cliente>
-      <tr>
-        <td>{{ cliente.nombre}}</td>
-        <td>{{ cliente.apellido}}</td>
-        <td>
-          <p-button icon="pi pi-user" styleClass="p-button-rounded p-button-info p-button-outlined"></p-button>
-          <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table> -->
 
   <p-table [value]="repuestoList" selectionMode="single" [(selection)]="selectedRepuesto" class="p-table">
     <ng-template pTemplate="header">
